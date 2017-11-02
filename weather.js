@@ -33,21 +33,26 @@ let handleWeatherResponse = function(response) {
   window.response = response
 
   // **** your code starts here - don't modify anything else. you will be sad.
-  $(".weather").empty();
 
-  let markup= "";
-  for (let i=0; i<7; i++) {
-    markup+= "<div class='row current'>"
-    markup+= "<div class='col'>"
-    markup+= "<h1 id='current-conditions-icon' src= 'icon(response.daily.data[0])" + "'alt= 'Image cap'></h1>"
-    markup+= "<h1 id='location'></h1>"
-    markup+= "<h2 id='current-conditions-text'>" + repsonse.daily.data[0].summary + "</h2>"
-    markup+= "</div></div></div>"
-  }
+    document.getElementById("current-conditions-text").innerHTML=response.currently.temperature.toFixed(0) + " and " + response.currently.summary;
 
-  $(".row").append(markup);
+    document.getElementById("current-conditions-icon").innerHTML=icon(response.currently);
 
-  $(".forecast").fadeIn(1000);
+    for (let i =1; i<6; i++){
+    document.getElementById("forecast" + i + "-temp").innerHTML = response.daily.data[i].temperatureHigh.toFixed(0) + " and " + response.daily.data[i].summary;
+    document.getElementById("forecast" + i + "-icon").innerHTML=icon(response.daily.data[i]);
+
+
+    //$("#forecast1").fadeIn(1000);
+    //$("#forecast2").fadeIn(2000);
+    //$("#forecast3").fadeIn(3000);
+    //$("#forecast4").fadeIn(4000);
+    //$("#forecast5").fadeIn(5000);
+
+    $(".forecast").fadeIn(1000);
+    }
+
+
 
   // *** your code ends here - no, really.
 };

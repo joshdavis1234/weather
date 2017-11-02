@@ -42,17 +42,9 @@ let handleWeatherResponse = function(response) {
     document.getElementById("forecast" + i + "-temp").innerHTML = response.daily.data[i].temperatureHigh.toFixed(0) + " and " + response.daily.data[i].summary;
     document.getElementById("forecast" + i + "-icon").innerHTML=icon(response.daily.data[i]);
 
-
-    //$("#forecast1").fadeIn(1000);
-    //$("#forecast2").fadeIn(2000);
-    //$("#forecast3").fadeIn(3000);
-    //$("#forecast4").fadeIn(4000);
-    //$("#forecast5").fadeIn(5000);
-
-    $(".forecast").fadeIn(1000);
+    $(".current").fadeIn(2000);
+    $(".forecast").fadeIn(4000);
     }
-
-
 
   // *** your code ends here - no, really.
 };

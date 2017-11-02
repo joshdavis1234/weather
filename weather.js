@@ -38,7 +38,7 @@ let handleWeatherResponse = function(response) {
 
     document.getElementById("current-conditions-icon").innerHTML=icon(response.currently);
 
-    for (let i =1; i<6; i++){
+    for (let i =1; i<7; i++){
     document.getElementById("forecast" + i + "-temp").innerHTML = response.daily.data[i].temperatureHigh.toFixed(0) + " and " + response.daily.data[i].summary;
     document.getElementById("forecast" + i + "-icon").innerHTML=icon(response.daily.data[i]);
 
